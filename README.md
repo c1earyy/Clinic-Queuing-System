@@ -2,7 +2,7 @@
 Clinic Queuing System Vulnerability exploitation
 # 注入点1
 功能点：Users->Add New
-
+ ![image text](https://github.com/c1earyy/Clinic-Queuing-System/blob/main/1.png)
 输入所有信息save并用burpsuite抓包
  ![image text](https://github.com/c1earyy/Clinic-Queuing-System/blob/main/2.png)
  ![image text](https://github.com/c1earyy/Clinic-Queuing-System/blob/main/3.png)
