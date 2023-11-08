@@ -1,8 +1,8 @@
 # Clinic-Queuing-System
 Clinic Queuing System Vulnerability exploitation
-#[注入点1]
+# 注入点1
 功能点：Users->Add New
- ![image text](https://github.com/c1earyy/Clinic-Queuing-System/blob/main/1.png)
+
 输入所有信息save并用burpsuite抓包
  ![image text](https://github.com/c1earyy/Clinic-Queuing-System/blob/main/2.png)
  ![image text](https://github.com/c1earyy/Clinic-Queuing-System/blob/main/3.png)
@@ -33,7 +33,7 @@ py .\sqlmap.py -r .\1.txt -p user_id –tables
 user_id参数存在sql注入，成功注入到tables
  ![image text](https://github.com/c1earyy/Clinic-Queuing-System/blob/main/4.png)
 
-#【注入点2】
+# 注入点2
 点击 +Add Record，填写好信息，save
  ![image text](https://github.com/c1earyy/Clinic-Queuing-System/blob/main/5.png)
 功能点：Patient List->view patient
